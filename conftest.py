@@ -1,7 +1,7 @@
 wait_time = 5
 
-import locators
-from locators import where
+from locators import Locator
+from locators import Where
 
 import pytest
 
@@ -22,12 +22,6 @@ def ddriver():
     yield driver
     driver.quit()
 
-@pytest.fixture
-def login(ddriver):
-    driver = ddriver
-    driver.get(where.main_pass)
 
-    elm = driver.find_element(*locators.locator1)
-    assert elm is not None
 
 
