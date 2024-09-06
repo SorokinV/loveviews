@@ -5,14 +5,13 @@ from locators import Where
 from selenium import webdriver
 
 
-def ttest_login(ddriver):
+def test_login(ddriver):
     driver = ddriver
     driver.get(Where.main_pass)
-
-    elm = driver.find_element(*Locator.locator1)
-    print(driver.curl_url)
-    assert elm is not None
+    print('\n',Locator.locator1[0],Locator.locator1[1])
+    #elm = driver.find_element(Locator.locator1[0],Locator.locator1[1])
+    print(driver.current_url)
+    assert 'irisqul' in driver.current_url
 
 def main():
-    print(f'-{Locator.locator1})')
     return

@@ -1,5 +1,6 @@
 wait_time = 5
 
+import time
 from locators import Locator
 from locators import Where
 
@@ -20,6 +21,7 @@ service = Service(ChromeDriverManager().install())
 def ddriver():
     driver = webdriver.Chrome(service=service, options=chrome_options)
     yield driver
+    time.sleep(10)
     driver.quit()
 
 
