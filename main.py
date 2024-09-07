@@ -11,12 +11,15 @@ from selenium.webdriver.common.by import By
 def test_login(ddriver):
     driver = ddriver
     driver.get(Where.main_pass)
-    print('\n',Locator.locator3[0],Locator.locator3[1])
-    elms = driver.find_elements(Locator.locator3[0],Locator.locator3[1])
-    #elms = driver.find_elements(By.XPATH, '//main')
-    print(len(elms))
+    elms = driver.find_elements(*Locator.locator0)
+    print('\n',len(elms))
     for elm in elms:
-        print(elm.get_attribute('class'))
+        #print(elm.get_attribute('innerHTML'))
+        #print(elm.get_attribute('outerHTML'))
+        ttext = elm.get_attribute('data-hovercard-url')
+        lltext = ttext.split('/')
+        if ('sprint' in lltext[2].lower()) and ('5' in lltext[2].lower()):
+            print(lltext[1:3])
     print(driver.current_url)
     assert 'irisqul' in driver.current_url
 
