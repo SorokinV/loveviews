@@ -11,6 +11,7 @@ class Locator:
 
 class Where:
     main_passx= 'https://github.com/irisqul'
-    main_pass = 'https://github.com/irisqul?tab=overview&from=2024-08-01&to=2024-09-01 '
+    main_passy = 'https://github.com/irisqul?tab=overview&from=2024-08-15&to=2024-09-01 '
+    main_pass = 'https://github.com/irisqul?tab=contributin&from=2024-08-01&to=2024-08-11 '
 
 
