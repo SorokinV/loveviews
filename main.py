@@ -6,7 +6,12 @@ from locators import Locator
 from locators import Where
 
 from selenium import webdriver
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait, TimeoutException
+
+wait_time = 5
+
 
 def one_slice(slice_last):
     sstring = '&from='+dt.datetime.strftime(slice_last,'%Y-%m-%d')
@@ -37,10 +42,12 @@ def ttest_login(dt_first):
         ii = -1
         for dt_next,sstring in all_slices(dt_next):
             ii +=1
-            if ii==1:
-                break
+            #if ii==1:
+            #    break
             #print(dt_next,sstring)
             driver.get(Where.main_pass+'/'+sstring+' ')
+            WebDriverWait(driver,wait_time).until(EC.presence_of_element_located((Locator.locatorw1[0],
+                                                                                  Locator.locatorw1[1])))
             elms = driver.find_elements(*Locator.locator0)
             #print('\n',len(elms))
             for elm in elms:
@@ -51,13 +58,22 @@ def ttest_login(dt_first):
                 flls.append((lltext[1:3]))
                 #print(flls)
                 if ('rint' in lltext[2].lower()) and ('5' in lltext[2].lower()):
-                    print(lltext[1:3])
+                    #print(lltext[1:3])
                     lls.append((lltext[1:3]))
-            time.sleep(30)
-        print(flls)
-        print(lls)
+            #time.sleep(30)
+        print(len(flls),flls)
+        print(len(lls),lls)
+
+        import pickle
+        f = open('datas', 'wb')
+        pickle.dump(flls, f)
+        pickle.dump(lls, f)
+        f.close()
+
         #print(driver.current_url)
         #assert 'irisqul' in driver.current_url
+    except TimeoutException:
+        print(f'Timeout: {len(flls)}')
     finally:
         driver.quit()
 
