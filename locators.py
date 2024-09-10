@@ -7,11 +7,11 @@ class Locator:
     locator5 = (By.XPATH, '//span[@class="Details-content--closed float-left"]')
     locator1 = (By.XPATH, '//main')
     locator6 = (By.XPATH, '//span[@class="col-8 css-truncate css-truncate-target width-fit flex-auto min-width-0" and data-hovercard-type="repository"]')
-    locator0 = (By.XPATH, '//span[@data-hovercard-type="repository" and contains(@data-hovercard-url,"rint")]')
+    locator7 = (By.XPATH, '//span[@data-hovercard-type="repository" and contains(@data-hovercard-url,"rint")]')
+    locator0 = (By.XPATH, '//span[@data-hovercard-type="repository"]')
 
 class Where:
     main_passx= 'https://github.com/irisqul'
-    main_passy = 'https://github.com/irisqul?tab=overview&from=2024-08-15&to=2024-09-01 '
-    main_pass = 'https://github.com/irisqul?tab=contributin&from=2024-08-01&to=2024-08-11 '
+    main_pass = 'https://github.com/irisqul'
 
 
