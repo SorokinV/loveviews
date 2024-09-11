@@ -28,8 +28,10 @@ def xxowner(driver, name, repos):
     driver.find_element(*owner_repos.PullRequestTab).click()
     WebDriverWait(driver,wait_time).until(EC.presence_of_element_located((owner_repos.Opened[0],owner_repos.Opened[1])))
 
+    print(owner_repos.Blank1[1])
+
     driver.find_element(*owner_repos.Opened).click()
-    WebDriverWait(driver,wait_time).until(EC.any_of(EC.presence_of_element_located((owner_repos.ClosedW[0],owner_repos.ClosedW[1])),
+    WebDriverWait(driver,wait_time).until(EC.any_of(EC.presence_of_element_located((owner_repos.OpenedW[0],owner_repos.OpenedW[1])),
             EC.presence_of_element_located((owner_repos.Blank0[0],owner_repos.Blank0[1])),
             EC.presence_of_element_located((owner_repos.Blank1[0],owner_repos.Blank1[1]))))
 
