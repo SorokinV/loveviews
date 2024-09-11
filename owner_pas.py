@@ -9,6 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 def xxowner(driver, name, repos):
     connect_str = f'https://github.com/{name}/{repos}/'
+    print(connect_str)
     driver.get(connect_str)
     WebDriverWait(driver, wait_time).until(EC.presence_of_element_located((owner_repos.PullRequestTab[0],owner_repos.PullRequestTab[1])))
     driver.find_element(*owner_repos.PullRequestTab).click()
@@ -58,13 +59,31 @@ from webdriver_manager.chrome import ChromeDriverManager
 chrome_options = webdriver.ChromeOptions()  # создали объект для опций
 service = Service(ChromeDriverManager().install())
 
+import traceback
+import pickle
 def login():
+
+    full_list, brief_list = [], []
+    f = open('datas', 'rb')
+    full_list = pickle.load(f)
+    brief_list = pickle.load(f)
+    f.close()
+
+    #print(full_list)
     driver = webdriver.Chrome(service=service, options=chrome_options)
     try:
-        xxowner(driver,'Vv-jpg-png','Sprint5x')
-        #xxowner(driver,'Vv-jpg-png','pproba1')
+        for counter, llist in enumerate(brief_list):
+            if counter>5:
+                break
+            if llist[0]=='Yandex-Practicum' or llist[0]=='NelliSm':
+                continue
+            xxowner(driver,llist[0], llist[1])
+            #xxowner(driver,'Vv-jpg-png','Sprint5x')
+            #xxowner(driver,'Vv-jpg-png','pproba1')
     except TimeoutException:
         print(f'Плохо {driver.current_url}')
+        #traceback.print_list()
+        pass
     finally:
         driver.quit()
 
