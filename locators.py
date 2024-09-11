@@ -15,8 +15,9 @@ class owner_repos:
     PRhref = (By.XPATH, "//a[@data-hovercard-type='pull_request']")
     Issues = (By.XPATH, "//div[@aria-label='Issues']" )
     Blank0 = (By.XPATH, "//h3[text()='No results matched your search.']" )
-    Blank1 = (By.XPATH, '//h3/text="There aren'+"'"+'t any open pull requests."')
-    locatorCC= (By.XPATH, '//span[@id="commits_tab_counter"]')
+    Blank1 = (By.XPATH, '//h3[contains(text(),"t any open pull requests")]')
+
+    Commits = (By.XPATH, '//span[@id="commits_tab_counter"]')
 
 class Where:
     main_pass = 'https://github.com/irisqul'
