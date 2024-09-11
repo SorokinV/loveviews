@@ -1,21 +1,38 @@
 from selenium.webdriver.common.by import By
 
 class Locator:
-    locator2 = (By.XPATH, '//*[@id="js-contribution-activity"]/div[2]/div/div/div[2]/details/summary/span[2]/span[2]')
-    locator3 = (By.XPATH, '//span[@class="Details-content--closed float-right"]')
-    locator4 = (By.XPATH, '//span[@class="d-inline-block float-right"]')
-    locator5 = (By.XPATH, '//span[@class="Details-content--closed float-left"]')
-    locator1 = (By.XPATH, '//main')
-    locator6 = (By.XPATH, '//span[@class="col-8 css-truncate css-truncate-target width-fit flex-auto min-width-0" and data-hovercard-type="repository"]')
-    locator7 = (By.XPATH, '//span[@data-hovercard-type="repository" and contains(@data-hovercard-url,"rint")]')
     locator0 = (By.XPATH, '//span[@data-hovercard-type="repository"]')
     locatorw1 = (By.XPATH, '//*[@id="js-contribution-activity"]/div[2]')
+class owner_repos:
+    PullRequestTab = (By.ID, 'pull-requests-tab')
+    Opened = (By.XPATH,'//a[@data-ga-click="Pull Requests, Table state, Open"]')
+    OpenedW = (By.XPATH, '//span[@aria-label="Open Pull Request"]')
 
-    #<h2 class="f4 text-normal mt-4 mb-3">
-    #Contribution activity
-   #</h2>
+    Closed = (By.XPATH,'//a[@data-ga-click="Pull Requests, Table state, Closed"]')
+    ClosedW = (By.XPATH, '//span[@aria-label="Closed Pull Request"]')
+
+    OCWait = (By.CLASS_NAME,'table-list-header-toggle states flex-auto pl-0')
+    PRhref = (By.XPATH, "//a[@data-hovercard-type='pull_request']")
+    Issues = (By.XPATH, "//div[@aria-label='Issues']" )
+    Blank0 = (By.XPATH, "//h3[text()='No results matched your search.']" )
+    Blank1 = (By.XPATH, "//h3[text()='There aren\'t any open pull requests.']")
+    locatorCC= (By.XPATH, '//span[@id="commits_tab_counter"]')
+
 class Where:
-    main_passx= 'https://github.com/irisqul'
     main_pass = 'https://github.com/irisqul'
 
 #//*[@id="js-contribution-activity"]/div[2]
+#<a class="d-block d-md-none position-absolute top-0 bottom-0 left-0 right-0"
+#aria-label="Link to Issue. Update README.md" href="/Vv-jpg-png/pproba1/pull/1"
+#data-turbo-frame="repo-content-turbo-frame"></a>
+#<a id="issue_1_link"
+#class="Link--primary v-align-middle no-underline h4 js-navigation-open markdown-title"
+#data-hovercard-type="pull_request"
+#data-hovercard-url="/Vv-jpg-png/pproba1/pull/1/hovercard"
+#href="/Vv-jpg-png/pproba1/pull/1"
+#data-turbo-frame="repo-content-turbo-frame">
+#Update README.md</a>
+
+#<span id="commits_tab_counter" title="4"
+#data-view-component="true"
+#class="Counter js-updateable-pull-request-commits-count">4</span>

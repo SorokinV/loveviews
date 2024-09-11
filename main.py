@@ -28,6 +28,7 @@ def all_slices(slice_first):
         yield  next_slice,'?tab=overview'+sstring
         if next_slice>dt.datetime.now():
             break
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
